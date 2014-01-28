@@ -1,0 +1,23 @@
+---
+
+- name: Create project directory
+  file: state=directory path=${project_root}
+
+- name: Pull backend code
+  git: repo=${project_repo} dest=${project_root} version=${branch}
+
+- name: install packages
+  apt: pkg={{ item }} state=latest
+  sudo: yes
+  with_items:
+    - openjdk-7-jdk
+
+- name: download sbt
+  shell: wget -O /tmp/sbt.deb http://repo.scala-sbt.org/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.13.1/sbt.deb
+
+- name: install sbt
+  shell: dpkg -i /tmp/sbt.deb
+  sudo: yes
+
+- name: compile ayai-backend
+  command: chdir=/vagrant/ayai-backend sbt compile

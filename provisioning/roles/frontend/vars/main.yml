@@ -1,0 +1,5 @@
+---
+project_name: ayai-frontend
+project_root: /vagrant/ayai-frontend
+project_repo: https://github.com/ayaigame/ayai-frontend.git
+branch: develop

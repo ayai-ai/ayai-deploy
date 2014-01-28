@@ -1,0 +1,7 @@
+---
+- hosts: main
+  roles: 
+    - role: common
+    - role: frontend
+    - role: backend
+
