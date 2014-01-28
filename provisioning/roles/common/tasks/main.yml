@@ -1,7 +1,7 @@
 ---
 
 - name: update apt cache
-  apt: update_cache=yes cache_valid_time=3600
+  apt: update_cache=yes
   sudo: yes
 
 - name: install add-apt-repository
@@ -16,8 +16,8 @@
   apt_key: url=http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xABF5BD827BD9BF62 state=present
   sudo: yes
 
-- name: update apt cache
-  apt: update_cache=yes cache_valid_time=3600
+- name: update apt cache (for key)
+  apt: update_cache=yes 
   sudo: yes
 
 - name: install packages
