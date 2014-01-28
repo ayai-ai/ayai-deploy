@@ -1,5 +1,9 @@
 ---
 
+- name: update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  sudo: yes
+
 - name: install add-apt-repository
   apt: pkg=python-software-properties state=latest
   sudo: yes
