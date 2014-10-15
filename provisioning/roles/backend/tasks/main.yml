@@ -1,10 +1,12 @@
 ---
 
+- include_vars: main.yml
+
 - name: Create project directory
-  file: state=directory path=${project_root}
+  file: state=directory path={{project_root}}
 
 - name: Pull backend code
-  git: repo=${project_repo} dest=${project_root} version=${branch}
+  git: repo={{project_repo}} dest={{project_root}} version={{branch}}
 
 - name: install packages
   apt: pkg={{ item }} state=latest
