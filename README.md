@@ -6,7 +6,7 @@ Run `vagrant up`. This will download and setup a basic Ubuntu 12.04 LTS virtual 
 
 This process will take some time as it is setting up a server suitable for Ayai as well as some general backend trickery to make development easier.
 
-It will also attempt to compile the Ayai backend as the last step. This may take a long time and if you wish to see it's process, I would Ctrl-C out of the provisioning and manually build it myself (this will happen naturally following the next steps).
+It will also attempt to compile the Ayai backend as the last step. This may take a long time and if you wish to see its progress, I would Ctrl-C out of the provisioning and manually build it myself (this will happen naturally following the next steps).
 
 After this, run `vagrant ssh`. You are now ssh'ed into the Vagrant virtual machine. `cd /vagrant/` to see a directory that is synchronized with the directory you checked out into.
 
