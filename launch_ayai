@@ -30,7 +30,7 @@ vagrant ssh <<EOF
 
 EOF
 
-url = "http://192.168.100.10/debug.html"
+url="http://192.168.100.10/debug.html"
 if command -v open ; then
 	open $url
 else
