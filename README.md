@@ -23,4 +23,3 @@ Navigate in your browser (on your local machine, not inside of vagrant) to `192.
 When you are done with development, switch to wherever you checked out ayai-deploy and run `vagrant halt`. This will turn off the Vagrant virtual machine and prevent it from hogging any resources.
 
 The reason we chose to do this was to keep dependencies across multiple platforms synchronized and since there are CORS issues with running a web server/app server on two different domains. This, of course, can be circumvented, but has been left as an exercise to the reader.
-
