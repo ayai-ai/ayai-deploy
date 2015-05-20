@@ -1,3 +1,5 @@
+Before running `launch_ayai`, read the comments at its top. That script has not been tested yet.
+
 Install http://www.vagrantup.com/ and install Ansible (`brew install ansible` on OS X, `sudo apt-get install ansible` on Debian based machines). If you are using Windows you still need to check this directory out, but you will not be able to use Vagrant/ansible. You should instead create a VirtualBox VM with Ubuntu 12.04, install ansible, and run `provisioning/local.sh` instead.
 
 Run `git clone http://github.com/ayaigame/ayai-deploy.git` and change into that directory.

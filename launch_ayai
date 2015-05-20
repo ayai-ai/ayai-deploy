@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# I do not guarantee that this script handles all edge cases.
+# Before relying on this script, try manually running it one command at a time,
+#  and look for error messages that you need to fix after each command.
+# I suggest reading the README's description of each step before running it,
+#  so you are warned of errors to look out for.
+
+# make sure your working directory is 'ayai-deploy' before running this
+
+if ! command -v vagrant ; then
+	echo "Vagrant is not installed. Make sure the 'vagrant' command exists."
+	exit 1
+fi
+if ! command -v ansible ; then
+	echo "Ansible is not installed. Make sure the 'ansible' command exists; the 'Vagrantfile' configuration requires it."
+	exit 1
+fi
+
+echo "starting vagrant"
+vagrant up
+
+vagrant ssh <<EOF
+
+	cd /vagrant/
+
+	echo "launching back-end"
+	cd ayai-backend/ 
+	sbt run
+
+EOF
+
+url = "http://192.168.100.10/debug.html"
+if command -v open ; then
+	open $url
+else
+	echo "Now open $url in your browser."
+fi
