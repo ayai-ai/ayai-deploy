@@ -36,3 +36,5 @@ if command -v open ; then
 else
 	echo "Now open $url in your browser."
 fi
+
+echo "Run \`vagrant halt\` when done to close the VM."
