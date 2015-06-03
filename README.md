@@ -1,3 +1,13 @@
+# Running Ayai, the research MMORPG
+
+## The main parts involved
+
+You need to run two servers to run the game: the front-end server and the back-end server. The front-end is simply HTML and JavaScript that are served as static files, using a Python script. The back-end is written in Scala and contains the game logic and database access.
+
+The servers were set up to run with Vagrant, which runs these servers inside of a virtual machine. Vagrant is supposed to make it easier to run the servers on any platform.
+
+## Instructions
+
 Before running `launch_ayai`, read the comments at its top. That script has not been tested yet.
 
 Install http://www.vagrantup.com/ and install Ansible (`brew install ansible` on OS X, `sudo apt-get install ansible` on Debian based machines). If you are using Windows you still need to check this directory out, but you will not be able to use Vagrant/ansible. You should instead create a VirtualBox VM with Ubuntu 12.04, install ansible, and run `provisioning/local.sh` instead.
