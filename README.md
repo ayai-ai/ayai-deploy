@@ -6,11 +6,11 @@ You need to run two servers to run the game: the front-end server and the back-e
 
 The servers were set up to run with Vagrant, which runs these servers inside of a virtual machine. Vagrant is supposed to make it easier to run the servers on any platform.
 
-When testing small changes, you can try running the back-end server with `sbt run`, from your IDE, instead of running the server in Vagrant. However, when the server is run outside of Vagrant, the admin interface (which provides account creation, character creation, and editing game objects) will not work.
+`ayai-frontend` and `ayai-backend` are [Git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) in this repository. To properly initialize them, when cloning this repository, add the `--recursive` flag to `git clone`.
 
 ## Instructions
 
-Before running `launch_ayai`, read the comments at its top. That script has not been tested yet.
+(The script `launch_ayai` is meant to automate most of this. But before trying to run it, read the comments at its top. The script has not been confirmed to work yet.)
 
 Install http://www.vagrantup.com/ and install Ansible (`brew install ansible` on OS X, `sudo apt-get install ansible` on Debian based machines). If you are using Windows you still need to check this directory out, but you will not be able to use Vagrant/ansible. You should instead create a VirtualBox VM with Ubuntu 12.04, install ansible, and run `provisioning/local.sh` instead.
 
@@ -35,3 +35,11 @@ Navigate in your browser (on your local machine, not inside of vagrant) to `192.
 When you are done with development, switch to wherever you checked out ayai-deploy and run `vagrant halt`. This will turn off the Vagrant virtual machine and prevent it from hogging any resources.
 
 The reason we chose to do this was to keep dependencies across multiple platforms synchronized and since there are CORS issues with running a web server/app server on two different domains. This, of course, can be circumvented, but has been left as an exercise to the reader.
+
+## Instructions for small-scale testing
+
+When testing small changes, you can run the servers without Vagrant. Launching the servers should be quicker in this case. However, when the server is run outside of Vagrant, the admin interface (which provides account creation, character creation, and editing game objects) will not work.
+
+You can run a limited version of the back-end server with `sbt run`, from your IDE, instead of running the server in Vagrant.
+
+You can run the front-end with the instructions in that repository’s README. Basically, just `python run.py` to statically serve those files.
