@@ -6,6 +6,8 @@ You need to run two servers to run the game: the front-end server and the back-e
 
 The servers were set up to run with Vagrant, which runs these servers inside of a virtual machine. Vagrant is supposed to make it easier to run the servers on any platform.
 
+When testing small changes, you can try running the back-end server with `sbt run`, from your IDE, instead of running the server in Vagrant. However, when the server is run outside of Vagrant, the admin interface (which provides account creation, character creation, and editing game objects) will not work.
+
 ## Instructions
 
 Before running `launch_ayai`, read the comments at its top. That script has not been tested yet.
