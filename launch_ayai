@@ -20,6 +20,14 @@ fi
 echo "starting vagrant"
 vagrant up
 
+echo "A web page is opening. Note that it will not be functional until the back-end finishes booting."
+url="http://192.168.100.10/debug.html"
+if command -v open ; then
+	open $url
+else
+	echo "Open $url in your browser to play the game."
+fi
+
 vagrant ssh <<EOF
 
 	cd /vagrant/
@@ -29,12 +37,5 @@ vagrant ssh <<EOF
 	sbt run
 
 EOF
-
-url="http://192.168.100.10/debug.html"
-if command -v open ; then
-	open $url
-else
-	echo "Now open $url in your browser."
-fi
 
 echo "Run \`vagrant halt\` when done to close the VM."
